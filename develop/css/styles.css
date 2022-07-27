@@ -195,6 +195,7 @@ select {
   border: none;
   border-radius: 28px;
   color: var(--color-white);
+  cursor: pointer;
   font-family: inherit;
   font-size: var(--fs-400);
   font-weight: var(--fw-bold);
@@ -221,6 +222,10 @@ select {
 /**      GENERAL      */
 /*--------------------*/
 body {
+  /* FIXME: Invalid - fix this */
+  background: to bottom, white,
+    linear-gradient(180deg, #ffffff 0%, #f0f1ff 100%);
+
   font-family: var(--ff-jakarta), sans-serif;
 }
 
@@ -228,15 +233,35 @@ body {
 /**       GRID        */
 /*--------------------*/
 #root {
-  padding: 20px;
-  height: 100vh;
-  max-width: 100vw;
+  display: grid;
+  grid-template-rows: max-content 0 1fr 0;
+  grid-template-columns: 20px 1fr 1fr 20px;
+  justify-content: center;
+
+  grid-template-areas:
+    ' . header header .'
+    '. . . .'
+    ' . courses courses .'
+    '. . . .'
+    ' footer footer footer footer';
+
+  margin: 1rem auto 0 auto;
+  max-width: var(--bp-sm);
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 48em) {
+  #root {
+    max-width: var(--bp-md);
+    grid-template-rows: max-content 15rem 1fr 2rem;
+  }
 }
 
 @media only screen and (min-width: 90em) {
   #root {
-    padding-left: 10.3125rem;
-    padding-right: 10.3125rem;
+    grid-template-rows: max-content 25rem 1fr 2rem;
+
+    max-width: var(--bp-lg);
   }
 }
 
@@ -244,24 +269,27 @@ body {
 /**      HEADER       */
 /*--------------------*/
 .header {
+  grid-area: header;
+
   display: grid;
   grid-template-columns: 100%;
+  grid-template-rows: max-content max-content;
   row-gap: 2rem;
 
-  margin: 0 auto;
-  max-width: var(--bp-sm);
+  /* margin: 0 auto;
+  max-width: var(--bp-sm); */
 }
 
 @media only screen and (min-width: 48em) {
   .header {
-    max-width: var(--bp-md);
+    /* max-width: var(--bp-md); */
     row-gap: 5rem;
   }
 }
 
 @media only screen and (min-width: 90em) {
   .header {
-    max-width: 73rem;
+    /* max-width: 73rem; */
     row-gap: 10rem;
   }
 }
@@ -284,6 +312,12 @@ body {
   z-index: 10;
 }
 
+@media only screen and (min-width: 90em) {
+  .btn--black {
+    margin-right: 5rem;
+  }
+}
+
 .btn--black:hover {
   background-color: var(--color-black-shade);
 }
@@ -301,6 +335,7 @@ body {
 .hero {
   display: grid;
   grid-template-columns: minmax(min-content, var(--bp-sm));
+  grid-template-rows: max-content max-content;
 
   position: relative;
 }
@@ -340,7 +375,7 @@ body {
 @media only screen and (min-width: 90em) {
   .hero__banner {
     top: -23.812rem;
-    right: -34rem;
+    right: -24rem;
   }
 }
 
@@ -348,21 +383,29 @@ body {
 /**     COURSES       */
 /*--------------------*/
 /* FIXME: Fix body overflowing so this can be applied */
-/* .main {
-  background-image: linear-gradient(180deg, #ffffff 0%, #f0f1ff 100%);
-  width: 100%;
-} */
+.main {
+  /* background-image: linear-gradient(180deg, #ffffff 0%, #f0f1ff 100%);
+  width: 100%; */
+  grid-area: courses;
+}
 
+/* FIXME: box--primary is larger than the rest */
 .courses {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  align-items: center;
+  align-content: stretch;
   gap: 3rem;
 }
 
 @media only screen and (min-width: 48em) {
   .courses {
     grid-auto-rows: 16.1875rem;
+  }
+}
+
+@media only screen and (min-width: 90em) {
+  .courses {
+    grid-template-columns: repeat(auto-fit, minmax(19.875rem, 1fr));
   }
 }
 
@@ -398,6 +441,7 @@ body {
 
 .course {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   gap: 1rem;
 
@@ -412,7 +456,7 @@ body {
 }
 
 @media only screen and (min-width: 90em) {
-  .box--course {
+  .course {
   }
 }
 
@@ -460,6 +504,8 @@ body {
 /**      FOOTER       */
 /*--------------------*/
 .footer {
+  grid-area: footer;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
