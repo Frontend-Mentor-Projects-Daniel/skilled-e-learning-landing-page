@@ -24,69 +24,132 @@
 
     <title>Frontend Mentor | Skilled e-learning landing page</title>
     <!--TODO: Don't forget to add attribution  -->
+    <!-- TODO: Don't forget to test on all browsers -->
+    <!-- TODO: Don't forget to use auto pre-fixer -->
   </head>
   <body>
     <div id="root">
       <!-- HEADER -->
-      <header class="header">
-        <div class="header__top-bar">
-          <!-- logo -->
-          <div class="header__logo">skilled</div>
 
-          <!-- cta -->
-          <button class="btn btn--black">Get Started</button>
-        </div>
+      <!-- COURSES -->
+      <!-- TODO: Test this and header for accessibility  -->
 
-        <!-- HERO -->
-        <div class="hero">
-          <!-- content  -->
-          <div class="hero__content">
-            <h1 class="hero__header heading-lg">
-              Maximize skill, minimize budget
-            </h1>
-            <p class="hero__body body-md">
-              Our modern courses across a range of in-demand skills will give
-              you the knowledge you need to live the life you want.
+      <main class="main">
+        <section class="courses">
+          <div class="box box--primary heading-sm">
+            Check out our most popular courses!
+          </div>
+          <!-- box 1 -->
+          <div class="box course">
+            <!-- icon -->
+            <img
+              src="./develop/assets/icon-animation.svg"
+              alt=""
+              class="course__icon"
+            />
+
+            <!-- title -->
+            <h2 class="course__title">Animation</h2>
+
+            <!-- text -->
+            <p class="course__text">
+              Learn the latest animation techniques to create stunning motion
+              design and captivate your audience.
             </p>
-            <button class="btn btn--primary">Get Started</button>
+
+            <!-- link -->
+            <a href="#" class="course__link">Get Started</a>
           </div>
 
-          <!-- img  -->
-          <picture class="hero__banner">
-            <source
-              srcset="
-                ./develop/assets/image-hero-desktop.png    1x,
-                ./develop/assets/image-hero-desktop@2x.png 2x
-              "
-              media="(min-width: 1440px)"
-            />
-
-            <source
-              srcset="
-                ./develop/assets/image-hero-tablet.png    1x,
-                ./develop/assets/image-hero-tablet@2x.png 2x
-              "
-              media="(min-width: 768px)"
-            />
-
-            <source
-              srcset="
-                ./develop/assets/image-hero-mobile.png    1x,
-                ./develop/assets/image-hero-mobile@2x.png 2x
-              "
-            />
-
+          <!-- box 2 -->
+          <div class="box course">
+            <!-- icon -->
             <img
-              srcset="
-                ./develop/assets/image-hero-tablet.png    1x,
-                ./develop/assets/image-hero-tablet@2x.png 2x
-              "
-              alt="skilled e worker banner image"
-              src="./develop/assets/image-hero-tablet.png "
+              src="./develop/assets/icon-design.svg"
+              alt=""
+              class="course__icon"
             />
-          </picture>
-        </div>
-      </header>
+
+            <!-- title -->
+            <h2 class="course__title">Design</h2>
+
+            <!-- text -->
+            <p class="course__text">
+              Create beautiful, usable interfaces to help shape the future of
+              how the web looks.
+            </p>
+
+            <!-- link -->
+            <a href="#" class="course__link">Get Started</a>
+          </div>
+
+          <!-- box 3 -->
+          <div class="box course">
+            <!-- icon -->
+            <img
+              src="./develop/assets/icon-photography.svg"
+              alt=""
+              class="course__icon"
+            />
+
+            <!-- title -->
+            <h2 class="course__title">Photography</h2>
+
+            <!-- text -->
+            <p class="course__text">
+              Explore critical fundamentals like lighting, composition, and
+              focus to capture exceptional photos.
+            </p>
+
+            <!-- link -->
+            <a href="#" class="course__link">Get Started</a>
+          </div>
+
+          <!-- box 4 -->
+          <div class="box course">
+            <!-- icon -->
+            <img
+              src="./develop/assets/icon-crypto.svg"
+              alt=""
+              class="course__icon"
+            />
+
+            <!-- title -->
+            <h2 class="course__title">Crypto</h2>
+
+            <!-- text -->
+            <p class="course__text">
+              All you need to know to get started investing in crypto. Go from
+              beginner to advanced with this 54 hour course.
+            </p>
+
+            <!-- link -->
+            <a href="#" class="course__link">Get Started</a>
+          </div>
+
+          <!-- box 5 -->
+          <div class="box course">
+            <!-- icon -->
+            <img
+              src="./develop/assets/icon-business.svg"
+              alt=""
+              class="course__icon"
+            />
+
+            <!-- title -->
+            <h2 class="course__title">Business</h2>
+
+            <!-- text -->
+            <p class="course__text">
+              A step-by-step playbook to help you start, scale, and sustain your
+              business without outside investment.
+            </p>
+
+            <!-- link -->
+            <a href="#" class="course__link">Get Started</a>
+          </div>
+        </section>
+      </main>
     </div>
   </body>
 </html>
