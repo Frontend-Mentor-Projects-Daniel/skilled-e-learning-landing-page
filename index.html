@@ -8,7 +8,7 @@
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="./assets/favicon-32x32.png"
+      href="./develop/assets/favicon-32x32.png"
     />
 
     <!-- google fonts -->
@@ -26,13 +26,73 @@
     <!--TODO: Don't forget to add attribution  -->
   </head>
   <body>
-    <!-- HEADER -->
-    <header class="header container">
-      <!-- logo -->
-      <div class="header__logo">skilled</div>
+    <div id="root">
+      <!-- HEADER -->
+      <header class="header">
+        <!-- logo -->
+        <div class="header__logo">skilled</div>
 
-      <!-- cta -->
-      <button class="btn btn--black">Get Started</button>
-    </header>
+        <!-- cta -->
+        <button class="btn btn--black">Get Started</button>
+
+        <!-- HERO -->
+        <div class="hero">
+          <!-- content -->
+          <div class="hero__content">
+            <h1 class="hero__header heading-lg">
+              Maximize skill, minimize budget
+            </h1>
+            <p class="hero__body body-md">
+              Our modern courses across a range of in-demand skills will give
+              you the knowledge you need to live the life you want.
+            </p>
+            <button class="btn btn--primary">Get Started</button>
+          </div>
+
+          <!-- img -->
+          <picture class="hero__banner">
+            <source
+              srcset="
+                ./develop/assets/image-hero-desktop.png    1x,
+                ./develop/assets/image-hero-desktop@2x.png 2x
+              "
+              media="(min-width: 1440px)"
+            />
+
+            <source
+              srcset="
+                ./develop/assets/image-hero-tablet.png    1x,
+                ./develop/assets/image-hero-tablet@2x.png 2x
+              "
+              media="(min-width: 786px)"
+            />
+
+            <source
+              srcset="
+                ./develop/assets/image-hero-mobile.png    1x,
+                ./develop/assets/image-hero-mobile@2x.png 2x
+              "
+            />
+
+            <img
+              srcset="
+                ./develop/assets/image-hero-tablet.png    1x,
+                ./develop/assets/image-hero-tablet@2x.png 2x
+              "
+              alt="skilled e worker banner image"
+              src="./develop/assets/image-hero-tablet.png "
+            />
+          </picture>
+        </div>
+      </header>
+
+      <!-- COURSES -->
+      <main>
+        <section class="courses"></section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer class="footer"></footer>
+    </div>
   </body>
 </html>

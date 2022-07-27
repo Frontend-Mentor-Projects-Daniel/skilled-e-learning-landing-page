@@ -9,6 +9,59 @@
   padding: 0;
 }
 
+/* Reset margins */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+picture {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+/* make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* make form elements easier to work with */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* remove animations for people who've turned them off */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /*--------------------*/
 /**   CUSTOM PROPS    */
 /*--------------------*/
@@ -119,6 +172,8 @@
   border-radius: 28px;
   color: var(--color-white);
   font-family: inherit;
+  font-size: var(--fs-400);
+  font-weight: var(--fw-bold);
   height: 3rem;
   transition: all 0.2s;
   width: 8.75rem;
@@ -138,22 +193,55 @@
 body {
   font-family: var(--ff-jakarta), sans-serif;
   margin: 0 auto;
-  max-width: 1440px;
+  max-width: 90rem;
+}
+
+/*--------------------*/
+/**      GRID         */
+/*--------------------*/
+
+#root {
+  display: grid;
+  grid-template-rows: 1fr 1fr 10%;
+  grid-template-columns: 23.5rem;
+  justify-content: center;
+
+  grid-template-areas:
+    'header'
+    'courses'
+    'footer';
+
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 48em) {
+  #root {
+    grid-template-columns: 48em;
+  }
+}
+
+@media only screen and (min-width: 90em) {
+  #root {
+    grid-template-columns: 90em;
+  }
 }
 
 /*--------------------*/
 /**      HEADER       */
 /*--------------------*/
 .header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  grid-area: header;
 
-  padding-top: 1.5rem;
-  margin-bottom: 2.8125rem;
+  display: grid;
+  grid-template-rows: min-content max-content;
+  grid-template-columns: 0.625rem 2fr 2fr 0.625rem;
+  row-gap: 2rem;
 }
 
 .header__logo {
+  grid-row: 1 / 1;
+  grid-column: 2 / 3;
+
   color: var(--color-black-main);
   font-size: 1.75rem;
   font-weight: var(--fw-extra-bold);
@@ -161,9 +249,59 @@ body {
 }
 
 .btn--black {
+  grid-row: 1 / 1;
+  grid-column: 3 / 4;
+  justify-self: end;
+
   background-color: var(--color-black-main);
 }
 
 .btn--black:hover {
   background-color: var(--color-black-shade);
+}
+
+.btn--primary {
+  background-image: var(--brand-color-primary-main);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 26px;
+  height: 3.5rem;
+  width: 10.4375rem;
+}
+
+.btn--primary:hover {
+  background-image: var(--brand-color-primary-shade);
+}
+
+/*--------------------*/
+/**       HERO        */
+/*--------------------*/
+.hero {
+  grid-row: 2;
+  grid-column: 2 / 4;
+}
+
+.hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.hero__banner {
+  grid-row: 2 / 3;
+  grid-column: 1 / -1;
+}
+
+/*--------------------*/
+/**     COURSES       */
+/*--------------------*/
+.courses {
+  grid-area: courses;
+}
+
+/*--------------------*/
+/**      FOOTER       */
+/*--------------------*/
+.footer {
+  grid-area: footer;
 }
