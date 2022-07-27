@@ -235,7 +235,13 @@ body {
   display: grid;
   grid-template-rows: min-content max-content;
   grid-template-columns: 0.625rem 2fr 2fr 0.625rem;
-  row-gap: 2rem;
+  row-gap: 4rem;
+}
+
+@media only screen and (min-width: 90em) {
+  .header {
+    justify-self: center;
+  }
 }
 
 .header__logo {
@@ -287,9 +293,39 @@ body {
   gap: 2rem;
 }
 
-.hero__banner {
-  grid-row: 2 / 3;
-  grid-column: 1 / -1;
+@media only screen and (min-width: 48em) {
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: max-content;
+
+    position: relative;
+  }
+
+  .hero__content {
+    width: 28.125rem;
+  }
+
+  .hero__banner {
+    grid-row: 1;
+    grid-column: 2 / 3;
+
+    position: absolute;
+    top: -263px;
+    right: -403px;
+
+    max-width: 44.5rem;
+  }
+}
+
+@media only screen and (min-width: 90em) {
+  .hero {
+    justify-items: center;
+  }
+
+  .hero__content {
+    width: 26.5625rem;
+  }
 }
 
 /*--------------------*/
