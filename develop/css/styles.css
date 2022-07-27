@@ -382,14 +382,10 @@ body {
 /*--------------------*/
 /**     COURSES       */
 /*--------------------*/
-/* FIXME: Fix body overflowing so this can be applied */
 .main {
-  /* background-image: linear-gradient(180deg, #ffffff 0%, #f0f1ff 100%);
-  width: 100%; */
   grid-area: courses;
 }
 
-/* FIXME: box--primary is larger than the rest */
 .courses {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
